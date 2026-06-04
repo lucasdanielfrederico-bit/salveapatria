@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Dossiê Oculto: a verdade escondida" },
+      { name: "description", content: "This app creates visually appealing sales pages that match your brand's identity." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Dossiê Oculto: a verdade escondida" },
+      { property: "og:description", content: "This app creates visually appealing sales pages that match your brand's identity." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Dossiê Oculto: a verdade escondida" },
+      { name: "twitter:description", content: "This app creates visually appealing sales pages that match your brand's identity." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/37de466b-f2d0-4f14-86ee-8856a5dbf818/id-preview-7ed6a7de--f5600ff9-ba6b-402f-880b-e062a25b42c4.lovable.app-1780615850008.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/37de466b-f2d0-4f14-86ee-8856a5dbf818/id-preview-7ed6a7de--f5600ff9-ba6b-402f-880b-e062a25b42c4.lovable.app-1780615850008.png" },
     ],
     links: [
       {
