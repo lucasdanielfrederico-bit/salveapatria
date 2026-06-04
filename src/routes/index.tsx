@@ -68,22 +68,6 @@ function SalesPage() {
               <span>Documentos</span>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="https://pay.cakto.com.br/w8ckmsn_914106"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-7 py-4 font-mono text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0] shadow-primary/40 transition hover:translate-y-[1px] hover:shadow-[0_2px_0_0] hover:shadow-primary/40"
-              >
-                ◎ Iniciar Investigação
-              </a>
-              <a
-                href="#descobrir"
-                className="inline-flex items-center justify-center rounded-sm border border-border bg-card px-6 py-4 font-mono text-xs uppercase tracking-widest text-foreground/80 transition hover:border-primary hover:text-primary"
-              >
-                Ver o que está dentro
-              </a>
-            </div>
           </div>
 
           <div className="relative">
