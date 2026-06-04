@@ -70,7 +70,9 @@ function SalesPage() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#oferta"
+                href="https://pay.cakto.com.br/w8ckmsn_914106"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-7 py-4 font-mono text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0] shadow-primary/40 transition hover:translate-y-[1px] hover:shadow-[0_2px_0_0] hover:shadow-primary/40"
               >
                 ◎ Iniciar Investigação
@@ -201,7 +203,9 @@ function SalesPage() {
           </div>
 
           <a
-            href="#"
+            href="https://pay.cakto.com.br/w8ckmsn_914106"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-primary px-7 py-4 font-mono text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0] shadow-primary/40 transition hover:translate-y-[1px] hover:shadow-[0_2px_0_0] hover:shadow-primary/40 sm:w-auto"
           >
             ◎ Quero o dossiê agora
