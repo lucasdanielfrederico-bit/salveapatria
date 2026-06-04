@@ -179,6 +179,96 @@ function SalesPage() {
         </div>
       </section>
 
+      {/* Social proof */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="mb-10 text-center">
+          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
+            Depoimentos / Leitores
+          </div>
+          <h2 className="mt-2 text-3xl font-black uppercase tracking-tight sm:text-4xl">
+            Quem leu, <span className="text-primary">não calou</span>
+          </h2>
+          <div className="mt-3 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <span className="text-primary text-base tracking-normal">★★★★★</span>
+            <span>4,9 / 5 · +12.480 leitores</span>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            {
+              name: "Carlos M.",
+              city: "São Paulo, SP",
+              text: "Conteúdo pesado. Nomes, datas, cifras — coisas que eu nunca tinha visto em lugar nenhum. Abriu meus olhos.",
+            },
+            {
+              name: "Juliana R.",
+              city: "Curitiba, PR",
+              text: "Comprei achando que era mais um e-book. Errei. É um verdadeiro dossiê — com documentos e fontes. Vale cada centavo.",
+            },
+            {
+              name: "Marcos A.",
+              city: "Belo Horizonte, MG",
+              text: "Li em duas noites. Mandei pra família toda. O Brasil precisa enxergar o que está nesse material.",
+            },
+            {
+              name: "Patrícia L.",
+              city: "Recife, PE",
+              text: "Linguagem direta, sem enrolação. Os capítulos sobre os bastidores são chocantes. Recomendo demais.",
+            },
+            {
+              name: "Rodrigo F.",
+              city: "Porto Alegre, RS",
+              text: "Esperava menos pelo preço. Recebi muito mais. Os documentos anexos foram o ponto alto pra mim.",
+            },
+            {
+              name: "Aline S.",
+              city: "Brasília, DF",
+              text: "Material sério, com referências. Não é teoria da conspiração — é o que a grande mídia não conta.",
+            },
+          ].map((t) => (
+            <figure
+              key={t.name}
+              className="relative rounded-sm border border-border bg-card p-6"
+            >
+              <div className="mb-2 text-primary text-sm tracking-widest">★★★★★</div>
+              <blockquote className="text-sm leading-relaxed text-foreground/90">
+                “{t.text}”
+              </blockquote>
+              <figcaption className="mt-4 flex items-center gap-3 border-t border-border/60 pt-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 font-mono text-xs font-bold uppercase text-primary">
+                  {t.name.split(" ").map((n) => n[0]).join("")}
+                </div>
+                <div>
+                  <div className="font-mono text-xs font-bold uppercase tracking-wider">
+                    {t.name}
+                  </div>
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                    {t.city} · ✓ Compra verificada
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-4">
+          {[
+            ["+12.480", "Leitores"],
+            ["4,9/5", "Avaliação média"],
+            ["98%", "Recomendam"],
+            ["7 dias", "Garantia total"],
+          ].map(([v, l]) => (
+            <div key={l} className="bg-background p-4 text-center">
+              <div className="font-mono text-xl font-black text-primary">{v}</div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                {l}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Offer / CTA */}
       <section id="oferta" className="mx-auto max-w-3xl px-4 py-20">
         <div className="relative rounded-md border-2 border-primary bg-card p-8 text-center shadow-[0_0_60px_-15px_var(--primary)]">
