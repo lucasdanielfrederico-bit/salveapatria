@@ -253,7 +253,7 @@ function SalesPage() {
         </div>
       </section>
 
-      {/* Offer / CTA */}
+      {/* Offer */}
       <section id="oferta" className="mx-auto max-w-3xl px-4 py-20">
         <div className="relative rounded-md border-2 border-primary bg-card p-8 text-center shadow-[0_0_60px_-15px_var(--primary)]">
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-sm bg-destructive px-3 py-1 font-mono text-[10px] uppercase tracking-[0.3em] text-destructive-foreground">
@@ -267,25 +267,8 @@ function SalesPage() {
             Receba o <span className="text-primary font-semibold">Dossiê Oculto</span> completo —
             livro digital + arquivos confidenciais.
           </p>
-
-          <div className="mt-6 flex items-baseline justify-center gap-2">
-            <span className="font-mono text-sm text-muted-foreground line-through">De R$ 97</span>
-            <span className="font-mono text-4xl font-black text-primary">R$ 27</span>
-          </div>
-          <div className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-            pagamento único · acesso imediato
-          </div>
-
-          <a
-            href="https://pay.cakto.com.br/w8ckmsn_914106"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-primary px-7 py-4 font-mono text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_4px_0_0] shadow-primary/40 transition hover:translate-y-[1px] hover:shadow-[0_2px_0_0] hover:shadow-primary/40 sm:w-auto"
-          >
-            ◎ Quero o dossiê agora
-          </a>
-          <div className="mt-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-            🔒 Compra 100% segura · garantia de 7 dias
+          <div className="mt-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            🔒 Material confidencial · garantia de 7 dias
           </div>
         </div>
       </section>
