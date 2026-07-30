@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import mockup from "@/assets/dossie-oculto-mockup.png.asset.json";
+import mockup from "@/assets/dossie-oculto-mockup.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -8,7 +8,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Descubra os maiores escândalos de corrupção que a mídia tentou esconder de você. Dados reais, investigações, provas e documentos." },
       { property: "og:title", content: "Dossiê Oculto — Confidencial" },
       { property: "og:description", content: "Os escândalos que tentaram esconder de você. Acesso liberado." },
-      { property: "og:image", content: mockup.url },
+      { property: "og:image", content: mockup },
+      { name: "twitter:image", content: mockup },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -76,7 +79,7 @@ function SalesPage() {
               className="absolute -inset-6 -z-10 rounded-lg bg-[radial-gradient(ellipse_at_center,_var(--primary)_0%,_transparent_60%)] opacity-20 blur-2xl"
             />
             <img
-              src={mockup.url}
+              src={mockup}
               alt="Dossiê Oculto — Livro, e-book, versão desktop, tablet e mobile"
               className="w-full rounded-md border border-border shadow-2xl shadow-black/60"
               loading="eager"
