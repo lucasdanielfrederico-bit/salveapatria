@@ -28,24 +28,24 @@ function SalesPage() {
   const paymentLink = "https://pay.cakto.com.br/36s4mry_1011737";
 
   return (
-    <main className="min-h-screen bg-[#050a05] text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
+    <main className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
       {/* Header / Logo Section */}
-      <header className="py-6 border-b border-primary/10 bg-black/40 backdrop-blur-md sticky top-0 z-50">
+      <header className="py-6 border-b border-primary/10 bg-card/40 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto max-w-6xl px-4 flex justify-center">
-          <img src={logoAsset.url} alt="Tribuna Patriota" className="h-16 md:h-24 w-auto drop-shadow-[0_0_10px_rgba(234,179,8,0.3)]" />
+          <img src={logoAsset.url} alt="Tribuna Patriota" className="h-16 md:h-24 w-auto drop-shadow-sm" />
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-black py-12 md:py-24">
+      <section className="relative overflow-hidden bg-background py-12 md:py-24">
         <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 text-left">
-            <div className="inline-flex items-center gap-3 rounded-full border border-primary/30 bg-black/40 px-6 py-2 backdrop-blur-md">
+            <div className="inline-flex items-center gap-3 rounded-full border border-primary/20 bg-primary/5 px-6 py-2 backdrop-blur-md">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               <span className="font-mono text-xs uppercase tracking-[0.4em] text-primary">Acesso Restrito</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-foreground leading-none">
               O ÚNICO <span className="text-primary italic">ESCAN CARA</span> OS PODERES SEM CENSURA.
             </h1>
 
@@ -64,7 +64,7 @@ function SalesPage() {
                 { label: "Conteúdo protegido", icon: "🔒" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center text-center space-y-2 group">
-                  <div className="h-12 w-12 rounded bg-primary/10 flex items-center justify-center text-xl group-hover:bg-primary/20 transition-colors">
+                  <div className="h-12 w-12 rounded bg-primary/10 flex items-center justify-center text-xl group-hover:bg-primary/20 transition-colors text-primary">
                     {item.icon}
                   </div>
                   <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">{item.label}</span>
@@ -83,24 +83,24 @@ function SalesPage() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 animate-pulse" />
+            <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-30 animate-pulse" />
             <img 
               src={heroAsset.url} 
               alt="Tribuna Patriota Inteligência" 
-              className="relative w-full h-auto drop-shadow-2xl rounded-2xl border border-primary/20"
+              className="relative w-full h-auto drop-shadow-xl rounded-2xl border border-primary/10"
             />
-            <div className="absolute top-4 right-4 bg-black/80 border border-primary/30 backdrop-blur-md px-4 py-2 rounded flex flex-col items-center">
+            <div className="absolute top-4 right-4 bg-card/90 border border-primary/20 backdrop-blur-md px-4 py-2 rounded flex flex-col items-center shadow-sm">
               <span className="text-primary text-xl font-black">+10.000</span>
-              <span className="text-[8px] uppercase tracking-widest text-white">Acessos nas últimas 24h</span>
+              <span className="text-[8px] uppercase tracking-widest text-foreground">Acessos nas últimas 24h</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Narrative Section */}
-      <section className="bg-neutral-900/50 py-24 border-y border-primary/10">
+      <section className="bg-muted/30 py-24 border-y border-primary/10">
         <div className="mx-auto max-w-4xl px-4 text-center space-y-8">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-foreground">
             Não fique de fora. O próximo pode ser você.
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
@@ -114,7 +114,7 @@ function SalesPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-black">
+      <section className="py-24 bg-background">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -134,8 +134,8 @@ function SalesPage() {
                 icon: "🤝"
               }
             ].map((f) => (
-              <div key={f.title} className="p-8 rounded-xl border border-primary/10 bg-neutral-900/30 hover:border-primary/40 transition-all group">
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">{f.icon}</div>
+              <div key={f.title} className="p-8 rounded-xl border border-primary/10 bg-card hover:border-primary/40 transition-all group shadow-sm hover:shadow-md">
+                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block text-primary">{f.icon}</div>
                 <h3 className="text-xl font-bold uppercase text-primary mb-4">{f.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{f.desc}</p>
               </div>
@@ -145,9 +145,9 @@ function SalesPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-[#080f08]">
+      <section className="py-24 bg-secondary/5">
         <div className="mx-auto max-w-6xl px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-16">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-foreground mb-16">
             Quem confia na <span className="text-primary">Tribuna</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,13 +156,13 @@ function SalesPage() {
               { name: "Maria Clara", city: "Joinville", text: "As análises de bastidores são cirúrgicas. Mudou minha forma de acompanhar política." },
               { name: "Henrique M.", city: "Goiânia", text: "A comunidade no WhatsApp/Telegram é excelente. Gente de bem discutindo o país." },
             ].map((t, i) => (
-              <div key={i} className="bg-black/40 border border-white/5 p-8 rounded-xl text-left space-y-4">
-                <div className="flex gap-1 text-primary">
+              <div key={i} className="bg-card border border-primary/5 p-8 rounded-xl text-left space-y-4 shadow-sm">
+                <div className="flex gap-1 text-secondary">
                   {[1,2,3,4,5].map(s => <span key={s}>★</span>)}
                 </div>
                 <p className="text-muted-foreground italic">"{t.text}"</p>
                 <div>
-                  <p className="font-bold text-white">{t.name}</p>
+                  <p className="font-bold text-foreground">{t.name}</p>
                   <p className="text-[10px] uppercase tracking-widest text-primary">{t.city}</p>
                 </div>
               </div>
@@ -172,16 +172,16 @@ function SalesPage() {
       </section>
 
       {/* Final Offer */}
-      <section id="oferta" className="py-24 bg-gradient-to-t from-black to-[#0a1a0a] border-t border-primary/20">
+      <section id="oferta" className="py-24 bg-gradient-to-t from-background to-primary/5 border-t border-primary/20">
         <div className="mx-auto max-w-4xl px-4">
           <div className="text-center space-y-6 mb-12">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white leading-none">
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground leading-none">
               GARANTA SEU ACESSO <span className="text-primary">ANUAL</span>
             </h2>
             <p className="text-xl text-muted-foreground">O acesso completo à inteligência política que você não encontra em nenhum outro lugar.</p>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl border-4 border-primary bg-black/80 p-8 md:p-12 shadow-[0_0_100px_-20px_rgba(234,179,8,0.5)]">
+          <div className="relative overflow-hidden rounded-3xl border-4 border-primary bg-card p-8 md:p-12 shadow-xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <ul className="space-y-4">
@@ -193,7 +193,7 @@ function SalesPage() {
                     "Suporte VIP",
                     "Garantia Incondicional"
                   ].map(item => (
-                    <li key={item} className="flex items-center gap-3 font-mono text-sm uppercase tracking-widest text-white">
+                    <li key={item} className="flex items-center gap-3 font-mono text-sm uppercase tracking-widest text-foreground">
                       <span className="text-primary">★</span> {item}
                     </li>
                   ))}
@@ -202,17 +202,16 @@ function SalesPage() {
 
               <div className="text-center p-8 rounded-2xl bg-primary/5 border border-primary/20 space-y-6">
                 <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Assinatura Anual</p>
-                <div className="space-y-1">
-                  <span className="text-2xl text-muted-foreground line-through opacity-50 block">R$ 497</span>
-                  <span className="text-6xl font-black text-primary">R$ 197</span>
+                <div className="py-6 border-y border-primary/10">
+                  <p className="text-sm font-bold text-primary italic uppercase tracking-widest">Condição Especial Disponível</p>
+                  <p className="text-xs text-muted-foreground mt-2">Clique no botão abaixo para conferir o valor atualizado e bônus exclusivos.</p>
                 </div>
-                <p className="text-sm font-bold text-primary">ou 12x de R$ 19,70</p>
                 
                 <a 
                   href={paymentLink}
                   className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-md bg-[#008000] py-6 text-xl font-black uppercase tracking-[0.2em] text-white shadow-xl transition-all hover:bg-[#00a000] active:scale-95"
                 >
-                  <span className="relative z-10">Assinar Agora</span>
+                  <span className="relative z-10">Garantir Acesso</span>
                   <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
                 </a>
 
