@@ -172,16 +172,16 @@ function SalesPage() {
       </section>
 
       {/* Final Offer */}
-      <section id="oferta" className="py-24 bg-gradient-to-t from-black to-[#0a1a0a] border-t border-primary/20">
+      <section id="oferta" className="py-24 bg-gradient-to-t from-background to-primary/5 border-t border-primary/20">
         <div className="mx-auto max-w-4xl px-4">
           <div className="text-center space-y-6 mb-12">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white leading-none">
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground leading-none">
               GARANTA SEU ACESSO <span className="text-primary">ANUAL</span>
             </h2>
             <p className="text-xl text-muted-foreground">O acesso completo à inteligência política que você não encontra em nenhum outro lugar.</p>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl border-4 border-primary bg-black/80 p-8 md:p-12 shadow-[0_0_100px_-20px_rgba(234,179,8,0.5)]">
+          <div className="relative overflow-hidden rounded-3xl border-4 border-primary bg-card p-8 md:p-12 shadow-xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <ul className="space-y-4">
@@ -193,7 +193,7 @@ function SalesPage() {
                     "Suporte VIP",
                     "Garantia Incondicional"
                   ].map(item => (
-                    <li key={item} className="flex items-center gap-3 font-mono text-sm uppercase tracking-widest text-white">
+                    <li key={item} className="flex items-center gap-3 font-mono text-sm uppercase tracking-widest text-foreground">
                       <span className="text-primary">★</span> {item}
                     </li>
                   ))}
@@ -202,17 +202,16 @@ function SalesPage() {
 
               <div className="text-center p-8 rounded-2xl bg-primary/5 border border-primary/20 space-y-6">
                 <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Assinatura Anual</p>
-                <div className="space-y-1">
-                  <span className="text-2xl text-muted-foreground line-through opacity-50 block">R$ 497</span>
-                  <span className="text-6xl font-black text-primary">R$ 197</span>
+                <div className="py-6 border-y border-primary/10">
+                  <p className="text-sm font-bold text-primary italic uppercase tracking-widest">Condição Especial Disponível</p>
+                  <p className="text-xs text-muted-foreground mt-2">Clique no botão abaixo para conferir o valor atualizado e bônus exclusivos.</p>
                 </div>
-                <p className="text-sm font-bold text-primary">ou 12x de R$ 19,70</p>
                 
                 <a 
                   href={paymentLink}
                   className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-md bg-[#008000] py-6 text-xl font-black uppercase tracking-[0.2em] text-white shadow-xl transition-all hover:bg-[#00a000] active:scale-95"
                 >
-                  <span className="relative z-10">Assinar Agora</span>
+                  <span className="relative z-10">Garantir Acesso</span>
                   <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
                 </a>
 
