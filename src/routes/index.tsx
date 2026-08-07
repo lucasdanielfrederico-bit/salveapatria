@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import logoAsset from "@/assets/logo-tribuna.png.asset.json";
 import heroAsset from "@/assets/hero-tribuna.png.asset.json";
 
@@ -26,9 +27,22 @@ function Index() {
 
 function SalesPage() {
   const paymentLink = "https://pay.cakto.com.br/36s4mry_1011737";
+  const [activeTab, setActiveTab] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   return (
-    <main className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
+    <main className={`min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Floating Interactive Flag Elements */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-20">
+        <div className="absolute top-20 -left-10 w-40 h-40 bg-primary rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-40 -right-10 w-60 h-60 bg-secondary rounded-full blur-3xl animate-pulse delay-700" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full animate-[spin_60s_linear_infinite]" />
+      </div>
+
       {/* Header / Logo Section */}
       <header className="py-6 border-b border-primary/10 bg-card/40 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto max-w-6xl px-4 flex justify-center">
@@ -45,8 +59,8 @@ function SalesPage() {
               <span className="font-mono text-xs uppercase tracking-[0.4em] text-primary">Acesso Restrito</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-foreground leading-none">
-              O ÚNICO <span className="text-primary italic">ESCAN CARA</span> OS PODERES SEM CENSURA.
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-foreground leading-none hover:scale-[1.01] transition-transform cursor-default">
+              O ÚNICO <span className="text-primary italic animate-pulse">ESCAN CARA</span> OS PODERES SEM CENSURA.
             </h1>
 
             <div className="space-y-4">
@@ -82,14 +96,14 @@ function SalesPage() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-30 animate-pulse" />
+          <div className="relative group cursor-zoom-in">
+            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 animate-pulse group-hover:opacity-50 transition-opacity" />
             <img 
               src={heroAsset.url} 
               alt="Tribuna Patriota Inteligência" 
-              className="relative w-full h-auto drop-shadow-xl rounded-2xl border border-primary/10"
+              className="relative w-full h-auto drop-shadow-2xl rounded-2xl border border-primary/10 transition-all duration-500 group-hover:rotate-1 group-hover:scale-[1.02]"
             />
-            <div className="absolute top-4 right-4 bg-card/90 border border-primary/20 backdrop-blur-md px-4 py-2 rounded flex flex-col items-center shadow-sm">
+            <div className="absolute top-4 right-4 bg-card/90 border border-primary/20 backdrop-blur-md px-4 py-2 rounded flex flex-col items-center shadow-lg transform transition-transform group-hover:-translate-y-1">
               <span className="text-primary text-xl font-black">+10.000</span>
               <span className="text-[8px] uppercase tracking-widest text-foreground">Acessos nas últimas 24h</span>
             </div>
@@ -109,6 +123,53 @@ function SalesPage() {
           </p>
           <div className="bg-destructive/10 border border-destructive/20 p-6 rounded-lg inline-block">
              <p className="text-destructive font-black uppercase tracking-[0.2em]">Acesse agora enquanto ainda está no ar.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Tabs Section */}
+      <section className="py-24 bg-card relative z-10 border-y border-primary/5">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h2 className="text-2xl md:text-4xl font-black uppercase mb-12 tracking-tighter">Nosso Compromisso com a <span className="text-accent underline decoration-primary decoration-4 underline-offset-8">Verdade</span></h2>
+          
+          <div className="flex flex-wrap justify-center gap-2 mb-8 p-1 bg-muted rounded-lg w-fit mx-auto">
+            {["Independência", "Coragem", "Bastidores"].map((tab, idx) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(idx)}
+                className={`px-6 py-2 rounded-md font-bold text-sm uppercase tracking-widest transition-all ${
+                  activeTab === idx 
+                    ? "bg-primary text-primary-foreground shadow-md scale-105" 
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          <div className="bg-background/50 backdrop-blur-sm border border-primary/10 p-8 rounded-2xl min-h-[200px] flex flex-col justify-center items-center transform transition-all duration-300 animate-in fade-in slide-in-from-bottom-4">
+            {activeTab === 0 && (
+              <div className="space-y-4">
+                <span className="text-4xl text-primary">⚖️</span>
+                <h3 className="text-xl font-black uppercase text-foreground">Zero Influência Estatal</h3>
+                <p className="text-muted-foreground">Não aceitamos um centavo de dinheiro público. Nossa lealdade é apenas com você e com o Brasil.</p>
+              </div>
+            )}
+            {activeTab === 1 && (
+              <div className="space-y-4">
+                <span className="text-4xl text-primary">🛡️</span>
+                <h3 className="text-xl font-black uppercase text-foreground">Resistência à Censura</h3>
+                <p className="text-muted-foreground">Mantemos nossos servidores em jurisdições protegidas para garantir que a voz da direita nunca seja calada.</p>
+              </div>
+            )}
+            {activeTab === 2 && (
+              <div className="space-y-4">
+                <span className="text-4xl text-primary">🕵️</span>
+                <h3 className="text-xl font-black uppercase text-foreground">Fontes Blindadas</h3>
+                <p className="text-muted-foreground">Nossa rede de informantes em Brasília garante que você saiba do movimento antes que ele aconteça.</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
