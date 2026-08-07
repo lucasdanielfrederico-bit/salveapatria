@@ -64,7 +64,7 @@ function SalesPage() {
                 { label: "Conteúdo protegido", icon: "🔒" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center text-center space-y-2 group">
-                  <div className="h-12 w-12 rounded bg-primary/10 flex items-center justify-center text-xl group-hover:bg-primary/20 transition-colors">
+                  <div className="h-12 w-12 rounded bg-primary/10 flex items-center justify-center text-xl group-hover:bg-primary/20 transition-colors text-primary">
                     {item.icon}
                   </div>
                   <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">{item.label}</span>
@@ -83,24 +83,24 @@ function SalesPage() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 animate-pulse" />
+            <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-30 animate-pulse" />
             <img 
               src={heroAsset.url} 
               alt="Tribuna Patriota Inteligência" 
-              className="relative w-full h-auto drop-shadow-2xl rounded-2xl border border-primary/20"
+              className="relative w-full h-auto drop-shadow-xl rounded-2xl border border-primary/10"
             />
-            <div className="absolute top-4 right-4 bg-black/80 border border-primary/30 backdrop-blur-md px-4 py-2 rounded flex flex-col items-center">
+            <div className="absolute top-4 right-4 bg-card/90 border border-primary/20 backdrop-blur-md px-4 py-2 rounded flex flex-col items-center shadow-sm">
               <span className="text-primary text-xl font-black">+10.000</span>
-              <span className="text-[8px] uppercase tracking-widest text-white">Acessos nas últimas 24h</span>
+              <span className="text-[8px] uppercase tracking-widest text-foreground">Acessos nas últimas 24h</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Narrative Section */}
-      <section className="bg-neutral-900/50 py-24 border-y border-primary/10">
+      <section className="bg-muted/30 py-24 border-y border-primary/10">
         <div className="mx-auto max-w-4xl px-4 text-center space-y-8">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-foreground">
             Não fique de fora. O próximo pode ser você.
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
@@ -114,7 +114,7 @@ function SalesPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-black">
+      <section className="py-24 bg-background">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -134,8 +134,8 @@ function SalesPage() {
                 icon: "🤝"
               }
             ].map((f) => (
-              <div key={f.title} className="p-8 rounded-xl border border-primary/10 bg-neutral-900/30 hover:border-primary/40 transition-all group">
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">{f.icon}</div>
+              <div key={f.title} className="p-8 rounded-xl border border-primary/10 bg-card hover:border-primary/40 transition-all group shadow-sm hover:shadow-md">
+                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block text-primary">{f.icon}</div>
                 <h3 className="text-xl font-bold uppercase text-primary mb-4">{f.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{f.desc}</p>
               </div>
@@ -145,9 +145,9 @@ function SalesPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-[#080f08]">
+      <section className="py-24 bg-secondary/5">
         <div className="mx-auto max-w-6xl px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-16">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-foreground mb-16">
             Quem confia na <span className="text-primary">Tribuna</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,13 +156,13 @@ function SalesPage() {
               { name: "Maria Clara", city: "Joinville", text: "As análises de bastidores são cirúrgicas. Mudou minha forma de acompanhar política." },
               { name: "Henrique M.", city: "Goiânia", text: "A comunidade no WhatsApp/Telegram é excelente. Gente de bem discutindo o país." },
             ].map((t, i) => (
-              <div key={i} className="bg-black/40 border border-white/5 p-8 rounded-xl text-left space-y-4">
-                <div className="flex gap-1 text-primary">
+              <div key={i} className="bg-card border border-primary/5 p-8 rounded-xl text-left space-y-4 shadow-sm">
+                <div className="flex gap-1 text-secondary">
                   {[1,2,3,4,5].map(s => <span key={s}>★</span>)}
                 </div>
                 <p className="text-muted-foreground italic">"{t.text}"</p>
                 <div>
-                  <p className="font-bold text-white">{t.name}</p>
+                  <p className="font-bold text-foreground">{t.name}</p>
                   <p className="text-[10px] uppercase tracking-widest text-primary">{t.city}</p>
                 </div>
               </div>
