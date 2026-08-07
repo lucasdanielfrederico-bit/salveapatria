@@ -258,20 +258,17 @@ function SalesPage() {
 
       {/* Offer */}
       <section id="oferta" className="mx-auto max-w-3xl px-4 py-20">
-        <div className="relative rounded-md border-2 border-primary bg-card p-8 text-center shadow-[0_0_60px_-15px_var(--primary)]">
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-sm bg-destructive px-3 py-1 font-mono text-[10px] uppercase tracking-[0.3em] text-destructive-foreground">
-            Acesso Liberado
-          </div>
+        <div className="relative rounded-md border border-border bg-card p-8 text-center">
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
             Nível de acesso
           </div>
           <div className="mt-1 text-xl font-black uppercase tracking-wide">Ultra secreto</div>
           <p className="mt-4 text-muted-foreground">
-            Receba o <span className="text-primary font-semibold">Dossiê Oculto</span> completo —
-            livro digital + arquivos confidenciais.
+            O Dossiê Oculto está sendo atualizado com novas provas documentais. 
+            Em breve, as inscrições serão reabertas.
           </p>
           <div className="mt-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-            🔒 Material confidencial · garantia de 7 dias
+            🔒 Material sob análise · em breve
           </div>
         </div>
       </section>
