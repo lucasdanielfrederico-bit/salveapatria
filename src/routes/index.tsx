@@ -28,24 +28,24 @@ function SalesPage() {
   const paymentLink = "https://pay.cakto.com.br/36s4mry_1011737";
 
   return (
-    <main className="min-h-screen bg-[#050a05] text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
+    <main className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
       {/* Header / Logo Section */}
-      <header className="py-6 border-b border-primary/10 bg-black/40 backdrop-blur-md sticky top-0 z-50">
+      <header className="py-6 border-b border-primary/10 bg-card/40 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto max-w-6xl px-4 flex justify-center">
-          <img src={logoAsset.url} alt="Tribuna Patriota" className="h-16 md:h-24 w-auto drop-shadow-[0_0_10px_rgba(234,179,8,0.3)]" />
+          <img src={logoAsset.url} alt="Tribuna Patriota" className="h-16 md:h-24 w-auto drop-shadow-sm" />
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-black py-12 md:py-24">
+      <section className="relative overflow-hidden bg-background py-12 md:py-24">
         <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 text-left">
-            <div className="inline-flex items-center gap-3 rounded-full border border-primary/30 bg-black/40 px-6 py-2 backdrop-blur-md">
+            <div className="inline-flex items-center gap-3 rounded-full border border-primary/20 bg-primary/5 px-6 py-2 backdrop-blur-md">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               <span className="font-mono text-xs uppercase tracking-[0.4em] text-primary">Acesso Restrito</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-foreground leading-none">
               O ÚNICO <span className="text-primary italic">ESCAN CARA</span> OS PODERES SEM CENSURA.
             </h1>
 
