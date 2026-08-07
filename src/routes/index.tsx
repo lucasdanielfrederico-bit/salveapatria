@@ -217,11 +217,11 @@ function SalesPage() {
               { name: "Maria Clara", city: "Joinville", text: "As análises de bastidores são cirúrgicas. Mudou minha forma de acompanhar política." },
               { name: "Henrique M.", city: "Goiânia", text: "A comunidade no WhatsApp/Telegram é excelente. Gente de bem discutindo o país." },
             ].map((t, i) => (
-              <div key={i} className="bg-card border border-primary/5 p-8 rounded-xl text-left space-y-4 shadow-sm">
-                <div className="flex gap-1 text-secondary">
+              <div key={i} className="bg-card border border-primary/5 p-8 rounded-xl text-left space-y-4 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                <div className="flex gap-1 text-secondary group-hover:scale-110 transition-transform origin-left">
                   {[1,2,3,4,5].map(s => <span key={s}>★</span>)}
                 </div>
-                <p className="text-muted-foreground italic">"{t.text}"</p>
+                <p className="text-muted-foreground italic group-hover:text-foreground transition-colors">"{t.text}"</p>
                 <div>
                   <p className="font-bold text-foreground">{t.name}</p>
                   <p className="text-[10px] uppercase tracking-widest text-primary">{t.city}</p>
@@ -233,16 +233,21 @@ function SalesPage() {
       </section>
 
       {/* Final Offer */}
-      <section id="oferta" className="py-24 bg-gradient-to-t from-background to-primary/5 border-t border-primary/20">
-        <div className="mx-auto max-w-4xl px-4">
+      <section id="oferta" className="py-24 bg-gradient-to-t from-background to-primary/5 border-t border-primary/20 relative overflow-hidden">
+        {/* Animated Background Element */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-5">
+           <div className="w-full h-full border-[40px] border-primary rounded-full animate-[ping_10s_linear_infinite]" />
+        </div>
+
+        <div className="mx-auto max-w-4xl px-4 relative z-10">
           <div className="text-center space-y-6 mb-12">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground leading-none">
-              GARANTA SEU ACESSO <span className="text-primary">ANUAL</span>
+              GARANTA SEU ACESSO <span className="text-primary animate-pulse">ANUAL</span>
             </h2>
             <p className="text-xl text-muted-foreground">O acesso completo à inteligência política que você não encontra em nenhum outro lugar.</p>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl border-4 border-primary bg-card p-8 md:p-12 shadow-xl">
+          <div className="relative overflow-hidden rounded-3xl border-4 border-primary bg-card p-8 md:p-12 shadow-2xl transition-transform hover:scale-[1.01]">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <ul className="space-y-4">
@@ -254,8 +259,8 @@ function SalesPage() {
                     "Suporte VIP",
                     "Garantia Incondicional"
                   ].map(item => (
-                    <li key={item} className="flex items-center gap-3 font-mono text-sm uppercase tracking-widest text-foreground">
-                      <span className="text-primary">★</span> {item}
+                    <li key={item} className="flex items-center gap-3 font-mono text-sm uppercase tracking-widest text-foreground group">
+                      <span className="text-primary transition-transform group-hover:scale-150">★</span> {item}
                     </li>
                   ))}
                 </ul>
@@ -279,7 +284,7 @@ function SalesPage() {
                 <div className="flex justify-center gap-4">
                    <img src="https://img.icons8.com/color/48/000000/visa.png" className="h-6 w-auto grayscale opacity-50" />
                    <img src="https://img.icons8.com/color/48/000000/mastercard.png" className="h-6 w-auto grayscale opacity-50" />
-                   <img src="https://img.icons8.com/color/48/000000/pix.png" className="h-6 w-auto grayscale opacity-50" />
+                    <img src="https://img.icons8.com/color/48/000000/pix.png" className="h-6 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="PIX Disponível" />
                 </div>
               </div>
             </div>
