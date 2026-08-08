@@ -86,14 +86,7 @@ function SalesPage() {
               ))}
             </div>
             
-            <div className="pt-6">
-              <a 
-                href="#oferta"
-                className="inline-flex h-16 w-full md:w-auto items-center justify-center rounded-md bg-[#008000] px-12 text-xl font-black uppercase tracking-widest text-white transition-all hover:scale-105 hover:bg-[#00a000] hover:shadow-[0_0_40px_rgba(0,128,0,0.4)] active:scale-95"
-              >
-                Garantir meu acesso agora
-              </a>
-            </div>
+            {/* CTA removido do início conforme solicitação */}
           </div>
 
           <div className="relative group cursor-zoom-in">
