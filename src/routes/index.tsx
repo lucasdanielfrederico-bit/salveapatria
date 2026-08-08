@@ -242,7 +242,7 @@ function SalesPage() {
         <div className="mx-auto max-w-4xl px-4 relative z-10">
           <div className="text-center space-y-6 mb-12">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground leading-none">
-              GARANTA SEU ACESSO <span className="text-primary animate-pulse">ANUAL</span>
+              GARANTA SEU ACESSO
             </h2>
             <p className="text-xl text-muted-foreground">O acesso completo à inteligência política que você não encontra em nenhum outro lugar.</p>
           </div>
