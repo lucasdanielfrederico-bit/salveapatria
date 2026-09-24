@@ -77,26 +77,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Tribuna Patriota | Inteligência e Informação" },
-      { name: "description", content: "O único que escancara os poderes sem censura. Jornalismo de direita, notícias, análises e inteligência." },
-      { name: "author", content: "Tribuna Patriota" },
-      { property: "og:title", content: "Tribuna Patriota | Inteligência e Informação" },
-      { property: "og:description", content: "O único que escancara os poderes sem censura." },
+      { title: "Bastidores do Poder — Documentos, Dossiês e História Política" },
+      { name: "description", content: "Biblioteca digital de conteúdos políticos, documentais e históricos." },
+      { name: "author", content: "Bastidores do Poder" },
+      { property: "og:title", content: "Bastidores do Poder" },
+      { property: "og:description", content: "Biblioteca digital de conteúdos políticos, documentais e históricos." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Tribuna Patriota" },
-      { name: "twitter:description", content: "O único que escancara os poderes sem censura." },
+      { name: "twitter:title", content: "Bastidores do Poder" },
+      { name: "twitter:description", content: "Biblioteca digital de conteúdos políticos, documentais e históricos." },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Source+Sans+3:wght@400;600;700&display=swap",
       },
-      {
-        rel: "icon",
-        type: "image/png",
-        href: "/favicon.png",
-      },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
     ],
   }),
   shellComponent: RootShell,
@@ -107,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
