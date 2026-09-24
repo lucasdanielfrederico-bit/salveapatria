@@ -1,292 +1,203 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
-import logoAsset from "@/assets/logo-tribuna.png.asset.json";
-import heroAsset from "@/assets/hero-tribuna.png.asset.json";
+import { useState } from "react";
+import heroImg from "@/assets/bp-hero.jpg";
+import dossiesImg from "@/assets/bp-dossies.jpg";
+import docsImg from "@/assets/bp-documentarios.jpg";
+import ebooksImg from "@/assets/bp-ebooks.jpg";
+import linhaImg from "@/assets/bp-linha.jpg";
+import personagensImg from "@/assets/bp-personagens.jpg";
+import arquivoImg from "@/assets/bp-arquivo.jpg";
+
+const PAYMENT_LINK = "https://pay.cakto.com.br/36s4mry_1011737";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tribuna Patriota | Inteligência e Informação Estratégica" },
-      { name: "description", content: "O único que escancara os poderes sem censura. Jornalismo de direita, notícias, análises e inteligência." },
-      { property: "og:title", content: "Tribuna Patriota | Inteligência Política" },
-      { property: "og:description", content: "Garanta seu acesso à comunidade que valoriza informação sem ruído e análises estratégicas." },
+      { title: "Bastidores do Poder — Documentos, Dossiês e História Política" },
+      {
+        name: "description",
+        content:
+          "Bastidores do Poder é uma biblioteca digital de conteúdos políticos, documentais e históricos: dossiês, documentários, e-books, personagens e acontecimentos.",
+      },
+      { property: "og:title", content: "Bastidores do Poder — Documentos, Dossiês e História Política" },
+      {
+        property: "og:description",
+        content: "Dossiês, documentários, e-books, personagens e acontecimentos em uma experiência de streaming.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: heroAsset.url },
-      { name: "twitter:image", content: heroAsset.url },
     ],
   }),
-  component: Index,
+  component: SalesPage,
 });
 
-function Index() {
-  return (
-    <SalesPage />
-  );
+interface Card {
+  title: string;
+  desc: string;
+  img: string;
 }
 
-function SalesPage() {
-  const paymentLink = "https://pay.cakto.com.br/36s4mry_1011737";
-  const [activeTab, setActiveTab] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+const CARDS: Card[] = [
+  { title: "Dossiês", desc: "Conteúdos organizados para facilitar a compreensão de acontecimentos políticos.", img: dossiesImg },
+  { title: "Documentários", desc: "Conteúdos apresentados em formato audiovisual e editorial.", img: docsImg },
+  { title: "E-books", desc: "Materiais completos para leitura aprofundada.", img: ebooksImg },
+  { title: "Linha do Tempo", desc: "Acontecimentos históricos organizados cronologicamente.", img: linhaImg },
+  { title: "Personagens", desc: "Informações documentadas sobre figuras políticas relevantes.", img: personagensImg },
+  { title: "Arquivo", desc: "Uma biblioteca organizada para explorar acontecimentos, documentos e fontes.", img: arquivoImg },
+];
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+const TABS = [
+  { label: "Documentação", title: "Fontes e registros", text: "Cada conteúdo é organizado a partir de documentos, registros e acontecimentos, para você entender o contexto completo." },
+  { label: "Profundidade", title: "Além da manchete", text: "Capítulos, personagens e linhas do tempo conectados para mostrar o que acontece por trás das decisões." },
+  { label: "Experiência", title: "Como um streaming", text: "Navegue por coleções, assista, leia e explore em uma plataforma pensada para ser simples e envolvente." },
+];
+
+const TESTIMONIALS = [
+  { name: "Sérgio K.", city: "São Paulo", text: "Parece um streaming de documentários políticos. Organizado e muito bem feito." },
+  { name: "Maria Clara", city: "Joinville", text: "As linhas do tempo mudaram minha forma de entender a história política." },
+  { name: "Henrique M.", city: "Goiânia", text: "Os dossiês são claros e completos. Vale cada minuto." },
+];
+
+function SalesPage() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tab = TABS[activeTab];
 
   return (
-    <main className={`min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      {/* Floating Interactive Flag Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-20">
-        <div className="absolute top-20 -left-10 w-40 h-40 bg-primary rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 -right-10 w-60 h-60 bg-secondary rounded-full blur-3xl animate-pulse delay-700" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full animate-[spin_60s_linear_infinite]" />
-      </div>
-
-      {/* Header / Logo Section */}
-      <header className="py-6 border-b border-primary/10 bg-card/40 backdrop-blur-md sticky top-0 z-50">
-        <div className="mx-auto max-w-6xl px-4 flex justify-center">
-          <img src={logoAsset.url} alt="Tribuna Patriota" className="h-16 md:h-24 w-auto drop-shadow-sm" />
+    <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-5">
+          <span className="font-display text-xl font-bold uppercase tracking-[0.25em] text-primary md:text-2xl">
+            Bastidores <span className="text-foreground">do</span> Poder
+          </span>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-background py-12 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 text-left">
-            <div className="inline-flex items-center gap-3 rounded-full border border-primary/20 bg-primary/5 px-6 py-2 backdrop-blur-md">
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              <span className="font-mono text-xs uppercase tracking-[0.4em] text-primary">Acesso Restrito</span>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-foreground leading-none hover:scale-[1.01] transition-transform cursor-default">
-              O ÚNICO <span className="text-primary italic animate-pulse">ESCAN CARA</span> OS PODERES SEM CENSURA.
+      {/* Hero */}
+      <section className="relative isolate overflow-hidden">
+        <img src={heroImg} alt="Mesa com documentos históricos, mapas e arquivos à luz de um abajur" width={1600} height={1008} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/85 to-background/30" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="mx-auto max-w-6xl px-4 py-24 md:py-36">
+          <div className="max-w-2xl space-y-7 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <p className="inline-flex items-center gap-3 border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.35em] text-primary">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" /> Bastidores do Poder
+            </p>
+            <h1 className="font-display text-4xl font-black leading-tight md:text-6xl">
+              Os bastidores da política <span className="text-primary">em um só lugar.</span>
             </h1>
-
-            <div className="space-y-4">
-              <p className="text-lg md:text-xl text-muted-foreground border-l-4 border-destructive pl-4 bg-destructive/5 py-2">
-                <span className="text-destructive font-bold uppercase tracking-widest block mb-1">Alto Risco de Banimento...</span>
-                A verdade incomoda. Eles sabem. E por isso podem tentar nos calar.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-              {[
-                { label: "Notícias em tempo real", icon: "⚡" },
-                { label: "Análises sem filtro", icon: "🛡" },
-                { label: "Bastidores exclusivos", icon: "🎯" },
-                { label: "Conteúdo protegido", icon: "🔒" },
-              ].map((item) => (
-                <div key={item.label} className="flex flex-col items-center text-center space-y-2 group">
-                  <div className="h-12 w-12 rounded bg-primary/10 flex items-center justify-center text-xl group-hover:bg-primary/20 transition-colors text-primary">
-                    {item.icon}
-                  </div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">{item.label}</span>
-                </div>
-              ))}
-            </div>
-            
-            {/* CTA removido do início conforme solicitação */}
-          </div>
-
-          <div className="relative group cursor-zoom-in">
-            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 animate-pulse group-hover:opacity-50 transition-opacity" />
-            <img 
-              src={heroAsset.url} 
-              alt="Tribuna Patriota Inteligência" 
-              className="relative w-full h-auto drop-shadow-2xl rounded-2xl border border-primary/10 transition-all duration-500 group-hover:rotate-1 group-hover:scale-[1.02]"
-            />
-            <div className="absolute top-4 right-4 bg-card/90 border border-primary/20 backdrop-blur-md px-4 py-2 rounded flex flex-col items-center shadow-lg transform transition-transform group-hover:-translate-y-1">
-              <span className="text-primary text-xl font-black">+10.000</span>
-              <span className="text-[8px] uppercase tracking-widest text-foreground">Acessos nas últimas 24h</span>
-            </div>
+            <p className="text-lg text-muted-foreground md:text-xl">
+              Explore dossiês, documentários, documentos, personagens, acontecimentos históricos e conteúdos organizados em uma experiência digital premium.
+            </p>
+            <a href="#plataforma" className="inline-flex items-center justify-center border border-primary px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground">
+              Conhecer a plataforma
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Narrative Section */}
-      <section className="bg-muted/30 py-24 border-y border-primary/10">
-        <div className="mx-auto max-w-4xl px-4 text-center space-y-8">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-foreground">
-            Não fique de fora. O próximo pode ser você.
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Em um cenário onde a informação é manipulada, ter acesso direto à fonte não é apenas um luxo, é uma estratégia de defesa. 
-            A Tribuna Patriota foi construída para quem não aceita ser apenas um espectador.
+      {/* Narrative */}
+      <section className="border-y border-border bg-secondary py-20">
+        <div className="mx-auto max-w-4xl space-y-6 px-4 text-center">
+          <h2 className="font-display text-3xl font-bold md:text-5xl">A história não acontece só nas manchetes.</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Decisões, alianças e acontecimentos que moldaram o país estão registrados em documentos, arquivos e bastidores. O Bastidores do Poder reúne tudo isso em uma biblioteca feita para quem quer entender de verdade.
           </p>
-          <div className="bg-destructive/10 border border-destructive/20 p-6 rounded-lg inline-block">
-             <p className="text-destructive font-black uppercase tracking-[0.2em]">Acesse agora enquanto ainda está no ar.</p>
-          </div>
         </div>
       </section>
 
-      {/* Interactive Tabs Section */}
-      <section className="py-24 bg-card relative z-10 border-y border-primary/5">
+      {/* Tabs */}
+      <section className="py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-2xl md:text-4xl font-black uppercase mb-12 tracking-tighter">Nosso Compromisso com a <span className="text-accent underline decoration-primary decoration-4 underline-offset-8">Verdade</span></h2>
-          
-          <div className="flex flex-wrap justify-center gap-2 mb-8 p-1 bg-muted rounded-lg w-fit mx-auto">
-            {["Independência", "Coragem", "Bastidores"].map((tab, idx) => (
+          <h2 className="mb-10 font-display text-2xl font-bold md:text-4xl">
+            O que torna a plataforma <span className="text-primary">diferente</span>
+          </h2>
+          <div className="mx-auto mb-8 flex w-fit flex-wrap justify-center gap-1 border border-border bg-card p-1">
+            {TABS.map((t, idx) => (
               <button
-                key={tab}
+                key={t.label}
+                type="button"
                 onClick={() => setActiveTab(idx)}
-                className={`px-6 py-2 rounded-md font-bold text-sm uppercase tracking-widest transition-all ${
-                  activeTab === idx 
-                    ? "bg-primary text-primary-foreground shadow-md scale-105" 
-                    : "text-muted-foreground hover:text-foreground"
+                aria-pressed={activeTab === idx}
+                className={`px-5 py-2 text-xs font-bold uppercase tracking-widest transition-colors ${
+                  activeTab === idx ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {tab}
+                {t.label}
               </button>
             ))}
           </div>
-
-          <div className="bg-background/50 backdrop-blur-sm border border-primary/10 p-8 rounded-2xl min-h-[200px] flex flex-col justify-center items-center transform transition-all duration-300 animate-in fade-in slide-in-from-bottom-4">
-            {activeTab === 0 && (
-              <div className="space-y-4">
-                <span className="text-4xl text-primary">⚖️</span>
-                <h3 className="text-xl font-black uppercase text-foreground">Zero Influência Estatal</h3>
-                <p className="text-muted-foreground">Não aceitamos um centavo de dinheiro público. Nossa lealdade é apenas com você e com o Brasil.</p>
-              </div>
-            )}
-            {activeTab === 1 && (
-              <div className="space-y-4">
-                <span className="text-4xl text-primary">🛡️</span>
-                <h3 className="text-xl font-black uppercase text-foreground">Resistência à Censura</h3>
-                <p className="text-muted-foreground">Mantemos nossos servidores em jurisdições protegidas para garantir que a voz da direita nunca seja calada.</p>
-              </div>
-            )}
-            {activeTab === 2 && (
-              <div className="space-y-4">
-                <span className="text-4xl text-primary">🕵️</span>
-                <h3 className="text-xl font-black uppercase text-foreground">Fontes Blindadas</h3>
-                <p className="text-muted-foreground">Nossa rede de informantes em Brasília garante que você saiba do movimento antes que ele aconteça.</p>
-              </div>
-            )}
+          <div key={activeTab} className="min-h-[160px] border border-border bg-card p-8 animate-in fade-in slide-in-from-bottom-2">
+            <h3 className="mb-3 font-display text-xl font-bold text-primary">{tab.title}</h3>
+            <p className="text-muted-foreground">{tab.text}</p>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-24 bg-background">
+      {/* Cards */}
+      <section id="plataforma" className="scroll-mt-24 border-t border-border bg-card/40 py-20">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { 
-                title: "Curadoria de Inteligência", 
-                desc: "Nossa equipe filtra o que realmente importa, economizando seu tempo e protegendo sua mente do lixo informacional.",
-                icon: "📋"
-              },
-              { 
-                title: "Análise de Bastidores", 
-                desc: "O que acontece nos corredores de Brasília antes de se tornar notícia. Antecipamos movimentos para você.",
-                icon: "🏛"
-              },
-              { 
-                title: "Comunidade Patriota", 
-                desc: "Debates de alto nível com pessoas que compartilham seus valores e sua visão de mundo, longe de trolls e censura.",
-                icon: "🤝"
-              }
-            ].map((f) => (
-              <div key={f.title} className="p-8 rounded-xl border border-primary/10 bg-card hover:border-primary/40 transition-all group shadow-sm hover:shadow-md">
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block text-primary">{f.icon}</div>
-                <h3 className="text-xl font-bold uppercase text-primary mb-4">{f.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{f.desc}</p>
-              </div>
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-accent">Biblioteca digital</p>
+            <h2 className="font-display text-3xl font-bold md:text-5xl">Tudo o que você vai explorar</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {CARDS.map((c) => (
+              <article key={c.title} className="group overflow-hidden border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/60">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={c.img} alt={c.title} loading="lazy" width={944} height={704} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div className="space-y-2 p-6">
+                  <h3 className="font-display text-lg font-bold uppercase tracking-wider text-primary">{c.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-secondary/5">
+      <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-foreground mb-16">
-            Quem confia na <span className="text-primary">Tribuna</span>
+          <h2 className="mb-12 font-display text-3xl font-bold md:text-5xl">
+            Quem já está nos <span className="text-primary">bastidores</span>
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: "Sérgio K.", city: "São Paulo", text: "Finalmente um lugar onde a informação é tratada com seriedade e os valores são respeitados." },
-              { name: "Maria Clara", city: "Joinville", text: "As análises de bastidores são cirúrgicas. Mudou minha forma de acompanhar política." },
-              { name: "Henrique M.", city: "Goiânia", text: "A comunidade no WhatsApp/Telegram é excelente. Gente de bem discutindo o país." },
-            ].map((t, i) => (
-              <div key={i} className="bg-card border border-primary/5 p-8 rounded-xl text-left space-y-4 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                <div className="flex gap-1 text-secondary group-hover:scale-110 transition-transform origin-left">
-                  {[1,2,3,4,5].map(s => <span key={s}>★</span>)}
-                </div>
-                <p className="text-muted-foreground italic group-hover:text-foreground transition-colors">"{t.text}"</p>
-                <div>
-                  <p className="font-bold text-foreground">{t.name}</p>
-                  <p className="text-[10px] uppercase tracking-widest text-primary">{t.city}</p>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {TESTIMONIALS.map((t) => (
+              <figure key={t.name} className="space-y-4 border border-border bg-card p-7 text-left transition-transform hover:-translate-y-1">
+                <div className="text-primary" aria-label="5 estrelas">★★★★★</div>
+                <blockquote className="italic text-muted-foreground">“{t.text}”</blockquote>
+                <figcaption>
+                  <p className="font-bold">{t.name}</p>
+                  <p className="text-xs uppercase tracking-widest text-accent">{t.city}</p>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final Offer */}
-      <section id="oferta" className="py-24 bg-gradient-to-t from-background to-primary/5 border-t border-primary/20 relative overflow-hidden">
-        {/* Animated Background Element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-5">
-           <div className="w-full h-full border-[40px] border-primary rounded-full animate-[ping_10s_linear_infinite]" />
+      {/* Final CTA */}
+      <section id="oferta" className="relative isolate overflow-hidden border-t border-primary/30 py-24">
+        <img src={arquivoImg} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-background/60" />
+        <div className="mx-auto max-w-3xl space-y-8 px-4 text-center">
+          <h2 className="font-display text-4xl font-black leading-tight md:text-6xl">
+            Entre nos <span className="text-primary">Bastidores do Poder</span>
+          </h2>
+          <p className="text-lg text-muted-foreground md:text-xl">
+            Uma biblioteca digital para explorar documentos, acontecimentos, personagens e capítulos importantes da história política.
+          </p>
+          <a
+            href={PAYMENT_LINK}
+            className="inline-flex w-full items-center justify-center bg-cta px-10 py-5 text-lg font-bold uppercase tracking-[0.2em] text-cta-foreground shadow-xl transition-all hover:brightness-110 active:scale-95 sm:w-auto"
+          >
+            Acessar a plataforma
+          </a>
         </div>
-
-        <div className="mx-auto max-w-4xl px-4 relative z-10">
-          <div className="text-center space-y-6 mb-12">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground leading-none">
-              GARANTA SEU ACESSO
-            </h2>
-            <p className="text-xl text-muted-foreground">O acesso completo à inteligência política que você não encontra em nenhum outro lugar.</p>
-          </div>
-
-          <div className="relative overflow-hidden rounded-3xl border-4 border-primary bg-card p-8 md:p-12 shadow-2xl transition-transform hover:scale-[1.01]">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <ul className="space-y-4">
-                  {[
-                    "Notícias Sem Filtro",
-                    "Análises de Bastidores",
-                    "Acesso à Comunidade",
-                    "Arquivos de Inteligência",
-                    "Suporte VIP",
-                    "Garantia Incondicional"
-                  ].map(item => (
-                    <li key={item} className="flex items-center gap-3 font-mono text-sm uppercase tracking-widest text-foreground group">
-                      <span className="text-primary transition-transform group-hover:scale-150">★</span> {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="text-center p-8 rounded-2xl bg-primary/5 border border-primary/20 space-y-6">
-                <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Assinatura Anual</p>
-                <div className="py-6 border-y border-primary/10">
-                  <p className="text-sm font-bold text-primary italic uppercase tracking-widest">Condição Especial Disponível</p>
-                  <p className="text-xs text-muted-foreground mt-2">Clique no botão abaixo para conferir o valor atualizado e bônus exclusivos.</p>
-                </div>
-                
-                <a 
-                  href={paymentLink}
-                  className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-md bg-[#008000] py-6 text-xl font-black uppercase tracking-[0.2em] text-white shadow-xl transition-all hover:bg-[#00a000] active:scale-95"
-                >
-                  <span className="relative z-10">Garantir Acesso</span>
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
-                </a>
-
-                <div className="flex justify-center gap-4">
-                   <img src="https://img.icons8.com/color/48/000000/visa.png" className="h-6 w-auto grayscale opacity-50" />
-                   <img src="https://img.icons8.com/color/48/000000/mastercard.png" className="h-6 w-auto grayscale opacity-50" />
-                    <img src="https://img.icons8.com/color/48/000000/pix.png" className="h-6 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="PIX Disponível" />
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-12 text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            © 2024 TRIBUNA PATRIOTA · TODOS OS DIREITOS RESERVADOS
-          </div>
-        </div>
+        <p className="mt-16 text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+          © {new Date().getFullYear()} Bastidores do Poder · Todos os direitos reservados
+        </p>
       </section>
     </main>
   );
